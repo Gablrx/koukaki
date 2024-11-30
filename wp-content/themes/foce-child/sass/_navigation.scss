@@ -1,0 +1,229 @@
+.main-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 60px;
+}
+
+.title-menu-container {
+  background-color: #ffd5a2;
+  padding: 0px 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .site-title {
+    text-align: center;
+    flex: 1;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+
+    .line {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #000;
+      margin: 5px 0; //
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.menu-toggle.croix .line {
+  background-color: #000;
+}
+/* Animation croix */
+.menu-toggle.croix .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.croix .line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.croix .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+} /* fin animation croix */
+
+.menu-full-screen {
+  background-color: #fff5e9;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  height: 100vh;
+  text-align: center;
+
+  ul {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 16px 0;
+      font-size: 35px;
+
+      //  pour le logo
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      a {
+        padding: 10px;
+      }
+    }
+    li a:hover {
+      text-shadow: #ff5c00 1px 0 14px;
+      color: black;
+    }
+  }
+}
+
+.menu-full-screen {
+  &::before,
+  &::after {
+    animation: rotation 8s linear infinite;
+  }
+}
+
+.menu-full-screen span {
+  font-size: 15px;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-full-screen .nav-menu > li:nth-child(1)::before {
+  content: url("../foce-child/assets/images/orchid.png");
+  position: absolute;
+  top: 40px;
+  left: -70px;
+  animation: rotation 8s linear infinite;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(2)::before {
+  content: url("../foce-child/assets/images/cat.png");
+  position: absolute;
+  top: -46px;
+  left: 18%;
+  animation: floatAnimation 3s infinite alternate-reverse;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(2)::after {
+  content: url("../foce-child/assets/images/Sunflower.png");
+  position: absolute;
+  top: -82px;
+  left: 80%;
+  animation: rotation 8s linear infinite;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(3)::after {
+  content: "";
+  background-image: url("../foce-child/assets/images/random_flower.png");
+  display: block;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 5px;
+  left: 97%;
+  animation: rotation 8s linear infinite;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(4)::before {
+  content: "";
+  background-image: url("../foce-child/assets/images/flower.png");
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  left: 17%;
+  animation: rotation 8s linear infinite;
+}
+.menu-full-screen .nav-menu > li:nth-child(4)::after {
+  content: "";
+  background-image: url("../foce-child/assets/images/cat-2.png");
+  display: block;
+  width: 110px;
+  height: 110px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  left: 68%;
+  animation: floatAnimation 3s infinite alternate;
+}
+.menu-full-screen .nav-menu > li:nth-child(5)::before {
+  content: "";
+  background-image: url("../foce-child/assets/images/cat-1.png");
+  display: block;
+  width: 119px;
+  height: 101px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 43px;
+  left: 139px;
+  animation: floatAnimation 3s infinite alternate;
+}
+.menu-full-screen .nav-menu > li:nth-child(5)::after {
+  content: "";
+  background-image: url("../foce-child/assets/images/hibiscus_footer.png");
+  display: block;
+  width: 360px;
+  height: 360px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 4px;
+  left: 85%;
+  animation: rotation 8s linear infinite;
+}
+
+/* OUVERTURE FADE IN  */
+.menu-full-screen {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+.menu-full-screen.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+// Styles responsifs pour les petits écrans
+@media (max-width: 768px) {
+  .title-menu-container {
+    padding: 0px 20px;
+  }
+
+  .menu-full-screen {
+    font-size: 18px;
+
+    ul {
+      li {
+        margin: 16px * 0.5 0;
+      }
+    }
+  }
+
+  .menu-full-screen .nav-menu > li:nth-child(2)::before,
+  .menu-full-screen .nav-menu > li:nth-child(4)::after,
+  .menu-full-screen .nav-menu > li:nth-child(5)::before {
+    display: none;
+  }
+}

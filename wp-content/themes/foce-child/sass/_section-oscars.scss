@@ -1,0 +1,73 @@
+/* Section Oscras */
+#oscars {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin-top: 150px;
+  flex-direction: row;
+  img {
+    padding-top: 6em;
+  }
+}
+
+#studio {
+  #oscars {
+    h3 {
+      background-image: url("./assets/images/orange_oscars_bg.png");
+      padding: 2em 2em;
+      text-align: left;
+    }
+  }
+}
+/* Remove Flowers from footer to #oscars */
+.site-footer {
+  &::before,
+  &::after {
+    content: none;
+  }
+}
+
+#oscars {
+  &::before {
+    content: url("./assets/images/Sunflower.png");
+    position: absolute;
+    left: 4em;
+    top: 34em;
+    z-index: -1;
+  }
+
+  &::after {
+    content: url("./assets/images/orchid.png");
+    position: absolute;
+    right: -4em;
+    bottom: 22em;
+  }
+}
+
+@media (max-width: 767px) {
+  #oscars {
+    display: block;
+    margin: 0;
+  }
+
+  #oscars::after {
+    content: url("./assets/images/orchid.png");
+    position: absolute;
+    right: -4em;
+    bottom: 0em;
+  }
+  #oscars img {
+    padding-top: 0;
+  }
+  #studio #oscars h3 {
+    background-image: url("./assets/images/orange_oscars_bg.png");
+
+    text-align: center;
+    font-size: 17px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Fin Section Oscras */

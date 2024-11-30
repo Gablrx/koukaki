@@ -1,0 +1,501 @@
+@charset "UTF-8";
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts     
+ Version: 0.1
+ */
+/* Fade sur les sections */
+.fade {
+  opacity: 0;
+  transition: opacity 2s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fade.section-visible {
+  opacity: 1;
+}
+
+/* Fin fade sur les sections */
+/* Apparition titres */
+.titre span {
+  display: block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.5s ease-out;
+}
+
+.animation-titre span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Fin Apparition titres*/
+/* flowers rotation */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+h2::before, h2::after,
+h3::before,
+h3::after,
+article::before,
+article::after,
+ul::before,
+ul::after {
+  animation: rotation 8s linear infinite;
+}
+
+/* h2::before, h2::after,
+h3::before, h3::after,
+article::before, article::after,
+ul::before, ul::after {
+  animation: rotation 8s linear infinite;
+} */
+.story h2::before,
+.story article::before {
+  animation: none;
+  z-index: -1;
+}
+
+/* fin flowers rotation */
+/* Section Oscras */
+#oscars {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin-top: 150px;
+  flex-direction: row;
+}
+#oscars img {
+  padding-top: 6em;
+}
+
+#studio #oscars h3 {
+  background-image: url("./assets/images/orange_oscars_bg.png");
+  padding: 2em 2em;
+  text-align: left;
+}
+
+/* Remove Flowers from footer to #oscars */
+.site-footer::before, .site-footer::after {
+  content: none;
+}
+
+#oscars::before {
+  content: url("./assets/images/Sunflower.png");
+  position: absolute;
+  left: 4em;
+  top: 34em;
+  z-index: -1;
+}
+#oscars::after {
+  content: url("./assets/images/orchid.png");
+  position: absolute;
+  right: -4em;
+  bottom: 22em;
+}
+
+@media (max-width: 767px) {
+  #oscars {
+    display: block;
+    margin: 0;
+  }
+  #oscars::after {
+    content: url("./assets/images/orchid.png");
+    position: absolute;
+    right: -4em;
+    bottom: 0em;
+  }
+  #oscars img {
+    padding-top: 0;
+  }
+  #studio #oscars h3 {
+    background-image: url("./assets/images/orange_oscars_bg.png");
+    text-align: center;
+    font-size: 17px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
+/* Fin Section Oscras */
+/* Banner Video + flottement titre  */
+@media (min-width: 768px) {
+  .banner {
+    background-image: none;
+  }
+}
+.banner {
+  position: relative;
+  min-height: 806px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* Flottement logo */
+}
+.banner video {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.banner img {
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1.2s ease-out;
+  animation: floatAnimation 3s infinite alternate;
+}
+@media (max-width: 767px) {
+  .banner video {
+    display: none;
+  }
+  .banner .banner {
+    background-image: url("./assets/images/banner.png");
+    height: 100vh;
+  }
+  .banner img {
+    width: 500px;
+  }
+}
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-15) translateX(20);
+  }
+  50% {
+    transform: translateY(-25px) translateX(15px);
+  }
+  75% {
+    transform: translateY(-8px) translateX(28px);
+  }
+  100% {
+    transform: translateY(12px) translateX(15px);
+  }
+}
+
+/* Fin Banner Video + flottement titre */
+/* Fade in */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-down {
+  animation: fadeInDown 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.banner img {
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Fin Fade in */
+/* Section LIEU */
+.story #place {
+  display: flex;
+  background-image: url("./assets/images/Studio_Koukaki-image_place.png");
+  width: 100%;
+  min-height: 699px;
+  background-size: cover;
+  position: relative;
+}
+
+.clouds-container {
+  position: absolute;
+  top: 70px;
+  right: 400px;
+  z-index: 1;
+}
+.clouds-container .cloud {
+  max-width: 300px;
+  position: absolute;
+  filter: blur(10px);
+}
+.clouds-container .cloud1 {
+  top: 0px;
+  left: 0px;
+}
+.clouds-container .cloud2 {
+  top: 200px;
+  left: -200px;
+}
+
+/* FIN Section LIEU */
+.story #characters {
+  display: block;
+}
+
+.story #characters h3 {
+  text-align: left;
+  background-position: left;
+  margin-left: 420px;
+  padding: 1em;
+}
+
+.swiper-container {
+  width: 100%;
+  /* overflow: hidden;  */
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  height: auto;
+  width: 400px;
+}
+
+@media (max-width: 767px) {
+  .story #characters h3 {
+    text-align: center;
+    background-position: center;
+    margin-left: 0;
+  }
+}
+.main-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 60px;
+}
+
+.title-menu-container {
+  background-color: #ffd5a2;
+  padding: 0px 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title-menu-container .site-title {
+  text-align: center;
+  flex: 1;
+}
+.title-menu-container .menu-toggle {
+  display: block;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.title-menu-container .menu-toggle .line {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle.croix .line {
+  background-color: #000;
+}
+
+/* Animation croix */
+.menu-toggle.croix .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.croix .line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.croix .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+} /* fin animation croix */
+.menu-full-screen {
+  background-color: #fff5e9;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  height: 100vh;
+  text-align: center;
+}
+.menu-full-screen ul {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-full-screen ul li {
+  margin: 16px 0;
+  font-size: 35px;
+}
+.menu-full-screen ul li img {
+  max-width: 100%;
+  height: auto;
+}
+.menu-full-screen ul li a {
+  padding: 10px;
+}
+.menu-full-screen ul li a:hover {
+  text-shadow: #ff5c00 1px 0 14px;
+  color: black;
+}
+
+.menu-full-screen::before, .menu-full-screen::after {
+  animation: rotation 8s linear infinite;
+}
+
+.menu-full-screen span {
+  font-size: 15px;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-full-screen .nav-menu > li:nth-child(1)::before {
+  content: url("../foce-child/assets/images/orchid.png");
+  position: absolute;
+  top: 40px;
+  left: -70px;
+  animation: rotation 8s linear infinite;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(2)::before {
+  content: url("../foce-child/assets/images/cat.png");
+  position: absolute;
+  top: -46px;
+  left: 18%;
+  animation: floatAnimation 3s infinite alternate-reverse;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(2)::after {
+  content: url("../foce-child/assets/images/Sunflower.png");
+  position: absolute;
+  top: -82px;
+  left: 80%;
+  animation: rotation 8s linear infinite;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(3)::after {
+  content: "";
+  background-image: url("../foce-child/assets/images/random_flower.png");
+  display: block;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 5px;
+  left: 97%;
+  animation: rotation 8s linear infinite;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(4)::before {
+  content: "";
+  background-image: url("../foce-child/assets/images/flower.png");
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  left: 17%;
+  animation: rotation 8s linear infinite;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(4)::after {
+  content: "";
+  background-image: url("../foce-child/assets/images/cat-2.png");
+  display: block;
+  width: 110px;
+  height: 110px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  left: 68%;
+  animation: floatAnimation 3s infinite alternate;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(5)::before {
+  content: "";
+  background-image: url("../foce-child/assets/images/cat-1.png");
+  display: block;
+  width: 119px;
+  height: 101px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 43px;
+  left: 139px;
+  animation: floatAnimation 3s infinite alternate;
+}
+
+.menu-full-screen .nav-menu > li:nth-child(5)::after {
+  content: "";
+  background-image: url("../foce-child/assets/images/hibiscus_footer.png");
+  display: block;
+  width: 360px;
+  height: 360px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 4px;
+  left: 85%;
+  animation: rotation 8s linear infinite;
+}
+
+/* OUVERTURE FADE IN  */
+.menu-full-screen {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+.menu-full-screen.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .title-menu-container {
+    padding: 0px 20px;
+  }
+  .menu-full-screen {
+    font-size: 18px;
+  }
+  .menu-full-screen ul li {
+    margin: 8px 0;
+  }
+  .menu-full-screen .nav-menu > li:nth-child(2)::before,
+  .menu-full-screen .nav-menu > li:nth-child(4)::after,
+  .menu-full-screen .nav-menu > li:nth-child(5)::before {
+    display: none;
+  }
+}

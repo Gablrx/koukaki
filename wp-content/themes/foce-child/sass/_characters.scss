@@ -1,0 +1,33 @@
+.story #characters {
+  display: block;
+}
+
+.story #characters h3 {
+  text-align: left;
+  background-position: left;
+  margin-left: 420px;
+  padding: 1em;
+}
+
+.swiper-container {
+  width: 100%;
+  /* overflow: hidden;  */
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  height: auto;
+  width: 400px;
+}
+
+@media (max-width: 767px) {
+  .story #characters h3 {
+    text-align: center;
+    background-position: center;
+    margin-left: 0;
+  }
+}

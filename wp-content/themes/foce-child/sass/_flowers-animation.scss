@@ -1,0 +1,37 @@
+/* flowers rotation */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h2,
+h3,
+article,
+ul {
+  &::before,
+  &::after {
+    animation: rotation 8s linear infinite;
+  }
+}
+
+/* h2::before, h2::after,
+h3::before, h3::after,
+article::before, article::after,
+ul::before, ul::after {
+  animation: rotation 8s linear infinite;
+} */
+
+.story {
+  h2,
+  article {
+    &::before {
+      animation: none; // Pas d'animation sur les tiges
+      z-index: -1;
+    }
+  }
+}
+/* fin flowers rotation */
